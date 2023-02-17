@@ -12,15 +12,27 @@ module.exports = {
       qty: {
         type: Sequelize.INTEGER
       },
-      deskription:{
-        type: Sequelize.STRING
+      price:{
+        type:Sequelize.INTEGER
       },
       weight: {
         type: Sequelize.INTEGER
       },
-      size: {
+      memory_storage : {
+        type: Sequelize.INTEGER
+      },
+      color:{
         type: Sequelize.STRING
       },
+      connectivity:{
+        type:Sequelize.STRING
+      },
+      screen_size:{
+        type:Sequelize.STRING
+      },  
+      processor:{
+        type:Sequelize.STRING
+      },    
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

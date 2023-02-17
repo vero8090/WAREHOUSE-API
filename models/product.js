@@ -14,11 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.category,{
         foreignKey:'category_id'
       }),
-      this.hasOne(models.product_detail,{
+      this.hasMany(models.product_detail,{
         foreignKey:'product_id'
-      }),
-      this.belongsTo(models.location_warehouse,{
-        foreignKey:'location_warehouse_id'
       }),
       this.hasMany(models.cart,{
         foreignKey:'product_id'
@@ -30,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   product.init({
     name: DataTypes.STRING,
-    price: DataTypes.INTEGER,
+    description:DataTypes.STRING,
     discount: DataTypes.INTEGER,
     createdAt:{
       type:DataTypes.DATE,

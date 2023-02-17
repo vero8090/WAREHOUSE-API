@@ -11,14 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.product,{
+      this.hasMany(models.location_product,{
         foreignKey:'location_warehouse_id'
+      }),
+      this.belongsTo(models.admin,{
+        foreignKey:'admin_id'
       })
     }
   }
   location_warehouse.init({
-    name: DataTypes.STRING,
-    qty: DataTypes.INTEGER,
+    city: DataTypes.STRING,
+    subdistrict:DataTypes.STRING,
+    province:DataTypes.STRING,
     latitude:DataTypes.INTEGER,
     longitude:DataTypes.INTEGER,
     createdAt:{

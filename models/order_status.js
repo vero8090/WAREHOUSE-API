@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       this.hasMany(models.transaction,{
         foreignKey:'order_status_id'
+      }),
+      this.hasMany(models.log_request,{
+        foreignKey:'order_status_id'
+      }),
+      this.hasMany(models.status_transaction_log,{
+        foreignKey:'order_status_id'
       })
     }
   }

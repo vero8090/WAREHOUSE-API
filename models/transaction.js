@@ -23,11 +23,16 @@ module.exports = (sequelize, DataTypes) => {
       }),
       this.hasMany(models.transaction_detail,{
         foreignKey:'transaction_id'
+      }),
+      this.hasMany(models.status_transaction_log,{
+        foreignKey:'transaction_id'
       })
     }
   }
   transaction.init({
     ongkir: DataTypes.INTEGER,
+    receiver:DataTypes.STRING,
+    address:DataTypes.STRING,
     status_transaction:{
       type: DataTypes.STRING,
       defaultValue: 'Menunggu Pembayaran'

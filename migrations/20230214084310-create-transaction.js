@@ -12,6 +12,12 @@ module.exports = {
       ongkir: {
         type: Sequelize.INTEGER
       },
+      receiver: {
+        type: Sequelize.STRING
+      },
+      address: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

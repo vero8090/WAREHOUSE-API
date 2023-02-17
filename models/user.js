@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(models.cart,{
         foreignKey:'user_id'
       }),
-      this.hasMany(models.address,{
+      this.hasMany(models.user_address,{
         foreignKey:'user_id'
       })
     }
@@ -32,7 +32,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     email: DataTypes.STRING,
     password: DataTypes.STRING,
-    role:DataTypes.STRING,
     status: DataTypes.STRING,
     nama: DataTypes.STRING,
     phone_number: DataTypes.INTEGER,

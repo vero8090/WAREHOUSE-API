@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class address extends Model {
+  class status_transaction_log extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,19 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.user,{
-        foreignKey:'user_id'
+      this.belongsTo(models.transaction,{
+        foreignKey:'transaction_id'
+      }),
+      this.belongsTo(models.order_status,{
+        foreignKey:'order_status_id'
       })
     }
   }
-  address.init({
-    user_address: DataTypes.STRING,
-    kecamatan: DataTypes.STRING,
-    provinsi: DataTypes.STRING,
-    latitude:DataTypes.INTEGER,
-    longitude:DataTypes.INTEGER,
-    penerima:DataTypes.STRING,
-    phone_number:DataTypes.INTEGER,
+  status_transaction_log.init({
+    
     createdAt:{
       type:DataTypes.DATE,
       defaultValue:sequelize.literal('CURRENT_TIMESTAMP')
@@ -34,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'address',
+    modelName: 'status_transaction_log',
   });
-  return address;
+  return status_transaction_log;
 };
